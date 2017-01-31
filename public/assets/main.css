@@ -1,0 +1,60 @@
+@import 'node_modules/reset-css/reset.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Avenir Next', sans-serif;
+  background: #27ae60;
+}
+
+h1 {
+  font-size: 36px;
+}
+.container {
+  display: flex;
+  width: 720px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.main-header {
+  height: 120px;
+  background-color: #465765;
+}
+
+
+
+/*==============================
+  Filter Options
+==============================*/
+label {
+  font-size: 14px;
+}
+
+select {
+  display: block;
+  width: 150px;
+}
+/*==============================
+  Trivia Card
+==============================*/
+.trivia-card {
+  width: 420px;
+  background-color: #ecf0f1;
+  border: 1px solid #465765;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.trivia-difficulty {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.trivia-category {
+  margin-bottom: 10px;
+}
