@@ -7,85 +7,120 @@
       <link rel="stylesheet" href="./assets/main.css">
    </head>
    <body>
-      <!-- <header class="main-header">
+      <header class="main-header">
          <div class="container">
             <section class="logo">
-               <h1>Questions</h1>
+               <img src="./assets/img/logo.png" alt="">
             </section>
          </div>
-      </header> -->
+      </header>
       <div class="container-fluid">
-         <aside class="side-bar col-md-4">
-            <section>
-               <ul class="question-list">
-                  <li>Question 1 of <span class="question-number"></span></li>
-               </ul>
-            </section>
+         <div class="row">
 
-            <form id="filter-options">
-               <!-- Number of Questions -->
-               <label for="num-questions">Number of Questions:</label>
-               <select class="num-questions" name="num-questions">
-                  <option value="1" selected>1</option>
-                  <option value="3">3</option>
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-               </select>
-               <!-- Filter Category -->
-               <label for="category-filter">Choose Category:</label>
-               <select class="category-filter" name="categories">
-                  <option value="any">Any Category</option>
-                  <option value="9">General Knowledge</option>
-                  <option value="10">Entertainment: Books</option>
-                  <option value="11">Entertainment: Film</option>
-                  <option value="12">Entertainment: Music</option>
-                  <option value="13">Entertainment: Musicals &amp; Theatres</option>
-                  <option value="14">Entertainment: Television</option>
-                  <option value="15">Entertainment: Video Games</option>
-                  <option value="16">Entertainment: Board Games</option>
-                  <option value="17">Science &amp; Nature</option>
-                  <option value="18">Science: Computers</option>
-                  <option value="19">Science: Mathematics</option>
-                  <option value="20">Mythology</option>
-                  <option value="21">Sports</option>
-                  <option value="22">Geography</option>
-                  <option value="23">History</option>
-                  <option value="24">Politics</option>
-                  <option value="25">Art</option>
-                  <option value="26">Celebrities</option>
-                  <option value="27">Animals</option>
-                  <option value="28">Vehicles</option>
-                  <option value="29">Entertainment: Comics</option>
-                  <option value="30">Science: Gadgets</option>
-                  <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
-                  <option value="32">Entertainment: Cartoon &amp; Animations</option>
-               </select>
-               <!-- Filter Difficulty -->
-               <label for="difficulty">Choose Difficulty:</label>
-               <select class="difficulty-filter" name="difficulty">
-                  <option value="any">Any Difficulty</option>
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-               </select>
-               <!-- Filter Question Type -->
-               <label for="type-filter">Choose Type:</label>
-               <select class="type-filter" name="type">
-                  <option value="any">Any Type</option>
-                  <option value="multiple">Multiple Choice</option>
-                  <option value="boolean">True/False</option>
-               </select>
-               <button type="button" name="new-game">Get Questions</button>
-            </form>
-         </aside><!-- ./side-bar -->
+            <aside class="side-bar col-md-4 col-lg-3">
+               <section class="player-score">
+                  <h2>Score: <span id="score">0</span></h2>
+               </section>
+               <hr>
+               <section>
+                  <h3 class="trivia-rounds hidden">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
+                  <ul class="question-list">
+                  </ul>
+               </section>
 
-         <main class="container col-md-8">
-            <section class="question-row row">
-                  <span id="timer"></span>
-            </section>
-         </main>
+               <form id="filter-options">
+                  <!-- Number of Questions -->
+                  <label for="num-questions">Number of Questions:</label>
+                  <select class="num-questions" name="num-questions">
+                     <option value="1">1</option>
+                     <option value="3">3</option>
+                     <option value="5">5</option>
+                     <option value="10" selected>10</option>
+                  </select>
+                  <!-- Filter Category -->
+                  <label for="category-filter">Choose Category:</label>
+                  <select class="category-filter" name="categories">
+                     <option value="any">Any Category</option>
+                     <option value="9">General Knowledge</option>
+                     <option value="10">Entertainment: Books</option>
+                     <option value="11">Entertainment: Film</option>
+                     <option value="12">Entertainment: Music</option>
+                     <option value="13">Entertainment: Musicals &amp; Theatres</option>
+                     <option value="14">Entertainment: Television</option>
+                     <option value="15">Entertainment: Video Games</option>
+                     <option value="16">Entertainment: Board Games</option>
+                     <option value="17">Science &amp; Nature</option>
+                     <option value="18">Science: Computers</option>
+                     <option value="19">Science: Mathematics</option>
+                     <option value="20">Mythology</option>
+                     <option value="21">Sports</option>
+                     <option value="22">Geography</option>
+                     <option value="23">History</option>
+                     <option value="24">Politics</option>
+                     <option value="25">Art</option>
+                     <option value="26">Celebrities</option>
+                     <option value="27">Animals</option>
+                     <option value="28">Vehicles</option>
+                     <option value="29">Entertainment: Comics</option>
+                     <option value="30">Science: Gadgets</option>
+                     <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+                     <option value="32">Entertainment: Cartoon &amp; Animations</option>
+                  </select>
+                  <!-- Filter Difficulty -->
+                  <label for="difficulty">Choose Difficulty:</label>
+                  <select class="difficulty-filter" name="difficulty">
+                     <option value="any">Any Difficulty</option>
+                     <option value="easy">Easy</option>
+                     <option value="medium">Medium</option>
+                     <option value="hard">Hard</option>
+                  </select>
+                  <!-- Filter Question Type -->
+                  <label for="type-filter">Choose Type:</label>
+                  <select class="type-filter" name="type">
+                     <option value="any">Any Type</option>
+                     <option value="multiple">Multiple Choice</option>
+                     <option value="boolean">True/False</option>
+                  </select>
+                  <button id="get-questions" type="button" name="new-game">Get Questions</button>
+               </form>
+            </aside><!-- ./side-bar -->
+
+            <main class="container">
+               <section class="question-row row">
+                     <span id="timer" class="text-center"></span>
+                     <article class="trivia-card hidden">
+                        <div class="flex-container">
+                           <span class="trivia-category"></span>
+                           <span class="trivia-difficulty"></span>
+                        </div>
+                        <hr>
+                        <p class="trivia-question"></p>
+                        <hr>
+                        <form id="player-answer">
+
+                        </form>
+                        <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
+                     </article>
+
+                     <article class="final-score hidden">
+                        <h1>Final Score: <span class="final"></span></h1>
+                        <hr>
+                        <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
+                        <p>Post to leaderboard?</p>
+                        <form class="" action="index.html" method="post">
+                           <label for="userName">Name: </label>
+                           <input id="userName" type="text" name="user_name" value="">
+                           <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="button">Submit</button>
+                        </form>
+                     </article>
+               </section>
+            </main><!-- ./main -->
+         </div>
       </div>
 
+      <footer class="main-footer">
+
+      </footer>
 
 
 

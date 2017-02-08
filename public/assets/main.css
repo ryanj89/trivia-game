@@ -12,6 +12,9 @@ body {
 h1 {
   font-size: 36px;
 }
+h2 {
+  font-size: 32px;
+}
 .container {
   display: flex;
   width: 720px;
@@ -24,15 +27,46 @@ h1 {
 .main-header {
   height: 120px;
   background-color: #465765;
+  align-items: center;
+}
+
+.logo > img {
+  margin-top: 6px;
+  height: 100px;
 }
 
 
-
+/*==============================
+  Player Score
+==============================*/
+.player-score {
+  margin: 20px 0;
+}
 /*==============================
   Category Lists
 ==============================*/
+.side-bar {
+  background: #5a7184;
+  height: 540px;
+  color: #ecf0f1;
+  box-shadow: 1px 0 22px 4px #465765;
+}
+
+.trivia-rounds {
+  margin: 10px 0;
+}
+
 .question-list > li {
   display: block;
+  margin: 10px 0;
+}
+
+.glyphicon-ok-sign {
+  color: #31f75f;
+}
+
+.glyphicon-remove-sign {
+  color: #e26a63;
 }
 /*==============================
   Filter Options
@@ -44,26 +78,42 @@ label {
 select {
   display: block;
   width: 150px;
+  color: #465765;
+}
+button {
+  margin: 10px 0;
+  color: #465765;
 }
 /*==============================
   Timer
 ==============================*/
 #timer {
   display: block;
+  margin: 20px 0;
   font-size: 36px;
   color: #ecf0f1;
 }
 /*==============================
   Trivia Card
 ==============================*/
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .trivia-card {
-  width: 420px;
+  margin: 20px 0;
+  width: 720px;
   background-color: #ecf0f1;
   border: 1px solid #465765;
+  box-shadow: 0 0 22px 4px #465765;
   border-radius: 5px;
   padding: 10px;
 }
-
+.trivia-card > hr {
+  margin-top: 0;
+  border-color: #465765;
+}
 .trivia-difficulty {
   margin-bottom: 10px;
   font-size: 20px;
@@ -71,12 +121,50 @@ select {
 
 .trivia-category {
   margin-bottom: 10px;
+  font-style: italic;
 }
 
+.trivia-question {
+  margin-bottom: 15px;
+}
 .trivia-answers {
   margin: 10px auto;
 }
 
 .trivia-answers > input {
   margin: 5px auto;
+}
+label {
+  width: 100%;
+}
+input[type="radio"] {
+  /*visibility: hidden;*/
+}
+
+input[type="radio"]:checked + label {
+    background: red;
+}
+/*==============================
+  Final Score
+==============================*/
+.final-score {
+  margin: 20px 0;
+  width: 420px;
+  background-color: #ecf0f1;
+  border: 1px solid #465765;
+  box-shadow: 0 0 22px 4px #465765;
+  border-radius: 5px;
+  padding: 10px;
+}
+.final-score > hr {
+  margin-top: 0;
+  border-color: #465765;
+}
+/*==============================
+  Footer
+==============================*/
+.main-footer {
+  height: 120px;
+  background-color: #465765;
+  align-items: center;
 }
