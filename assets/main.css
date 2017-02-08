@@ -29,12 +29,6 @@ h1 {
 
 
 /*==============================
-  Category Lists
-==============================*/
-.question-list > li {
-  display: block;
-}
-/*==============================
   Filter Options
 ==============================*/
 label {
@@ -44,14 +38,6 @@ label {
 select {
   display: block;
   width: 150px;
-}
-/*==============================
-  Timer
-==============================*/
-#timer {
-  display: block;
-  font-size: 36px;
-  color: #ecf0f1;
 }
 /*==============================
   Trivia Card
@@ -71,12 +57,4 @@ select {
 
 .trivia-category {
   margin-bottom: 10px;
-}
-
-.trivia-answers {
-  margin: 10px auto;
-}
-
-.trivia-answers > input {
-  margin: 5px auto;
 }

@@ -57,16 +57,19 @@ function createTriviaCards(questions) {
     $card.append($difficulty).append($category).append($question);
     $('main').append($card);
 
-    // Get answers
-    var allAnswers = [ ];
-    var correctAnswer = question.correct_answer;
-    var wrongAnswers = question.incorrect_answers;
+    var answers = getAnswers(question);
+    console.log(answers);
     // Combine all answers and shuffle
-    allAnswers.push(correctAnswer);
-    wrongAnswers.forEach(function(answer) {
-      allAnswers.push(answer);
-    });
-    shuffle(allAnswers);
+    // shuffle(allAnswers);
+
+    function getAnswers(question) {
+      var answerChoices = [ ];
+      answerChoices.push(question.correct_answer);
+      question.incorrect_answers.forEach(function(answer) {
+        answerChoices.push(answer);
+      });
+      return answerChoices;
+    }
 
 
     // Fisher-Yates shuffle
@@ -81,5 +84,3 @@ function createTriviaCards(questions) {
     }
   });
 }
-
-function Question()
