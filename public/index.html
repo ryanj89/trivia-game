@@ -11,17 +11,20 @@
          <div class="container">
             <section class="logo">
                <img src="./assets/img/logo.png" alt="">
+               <!-- <button id="showHighScores" class="btn btn-success" type="button" name="button">Show High Scores</button> -->
             </section>
          </div>
       </header>
       <div class="container-fluid">
          <div class="row">
 
-            <aside class="side-bar col-md-4 col-lg-3">
+            <aside class="side-bar col-md-4 col-lg-2">
                <section class="player-score">
                   <h2>Score: <span id="score">0</span></h2>
                </section>
+
                <hr>
+
                <section>
                   <h3 class="trivia-rounds hidden">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
                   <ul class="question-list">
@@ -85,7 +88,7 @@
                </form>
             </aside><!-- ./side-bar -->
 
-            <main class="container">
+            <main class="container col-md-4 col-lg-8">
                <section class="question-row row">
                      <span id="timer" class="text-center"></span>
                      <article class="trivia-card hidden">
@@ -115,6 +118,15 @@
                      </article>
                </section>
             </main><!-- ./main -->
+
+            <aside class="side-bar col-md-4 col-lg-2">
+               <section class="high-scores">
+                  <h2>High Scores</h2>
+                  <hr>
+                  <ol class="scores">
+                  </ol>
+               </section>
+            </aside>
          </div>
       </div>
 

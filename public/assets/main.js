@@ -1,3 +1,23 @@
+$(document).ready(function() {
+  // Get leaderboard scores
+  $.get('https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/', function(results) {
+    var highScores = results.filter(function(leader) {
+      if (leader.game_name === 'TRVA') {
+        return leader;
+      }
+    })
+    var sortedScores = highScores.sort(function(score1, score2) {
+      return score1.score < score2.score;
+    })
+    // console.log(highScores);
+    sortedScores.forEach(function(score, i) {
+      var $leaderScore = $('<li>').text( (i + 1) + '. ' + score.score + " - " + score.player_name);
+      $('.scores').append($leaderScore);
+    })
+  })
+})
+
+
 var counter;
 // Get questions
 $('#get-questions').on('click', function() {
@@ -240,4 +260,6 @@ $('#leaderboard').on('click', function() {
   function postFailed(results) {
     console.log('POSTING FAILED');
   }
+
+
 })
