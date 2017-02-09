@@ -88,6 +88,7 @@ function getTriviaData(triviaQuery) {
         var correctAnswer = getAnswer(questions, currentRound);
 
         if (playerChoice === correctAnswer) {
+          $('.alert-correct>h2').text(getRandomSuccess());
           $('.alert-correct').fadeIn('slow').delay(1000).fadeOut('slow');
           var currentCategory = $('.trivia-status:eq('+currentRound+ ')');
           currentCategory.removeClass('glyphicon-question-sign');
@@ -98,7 +99,7 @@ function getTriviaData(triviaQuery) {
           answeredCorrectly++;
           addScore();
         } else {
-          // alert('WRONG!');
+          $('.alert-wrong>h2').text(getRandomFailure());
           $('.alert-wrong').fadeIn('fast').delay(1000).fadeOut('slow');
           var currentCategory = $('.trivia-status:eq('+currentRound+ ')');
           currentCategory.removeClass('glyphicon-question-sign');
@@ -266,3 +267,27 @@ $('#leaderboard').on('click', function() {
 
 
 })
+
+
+function getRandomSuccess() {
+  var success = [
+    "Great job!",
+    "Correct!",
+    "Way to go!",
+    "That's Right!",
+    "So smart!",
+    "Awesome!",
+  ]
+  return success[Math.floor(Math.random() * success.length)];
+}
+function getRandomFailure() {
+  var failure = [
+    "Wrong!",
+    "Not Quite..",
+    "Almost..",
+    "So Close!",
+    "Duh...",
+    "..really?",
+  ]
+  return failure[Math.floor(Math.random() * failure.length)];
+}
