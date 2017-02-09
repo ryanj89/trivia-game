@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Trivia</title>
+      <title>Trivia: the GAME!</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="./assets/main.css">
    </head>
@@ -10,8 +10,7 @@
       <header class="main-header">
          <div class="container">
             <section class="logo">
-               <img src="./assets/img/logo.png" alt="">
-               <!-- <button id="showHighScores" class="btn btn-success" type="button" name="button">Show High Scores</button> -->
+               <img src="./assets/img/logo.png" alt="trivia game logo">
             </section>
          </div>
       </header>
@@ -84,41 +83,56 @@
                      <option value="multiple">Multiple Choice</option>
                      <option value="boolean">True/False</option>
                   </select>
-                  <button id="get-questions" type="button" name="new-game">Get Questions</button>
+                  <button id="get-questions" class="btn btn-success btn-block" type="button" name="new-game">START GAME</button>
                </form>
             </aside><!-- ./side-bar -->
 
             <main class="container col-md-4 col-lg-8">
                <section class="question-row row">
+                  <!-- Timer -->
+                  <div class="timer-area">
                      <span id="timer" class="text-center"></span>
-                     <article class="trivia-card hidden">
-                        <div class="flex-container">
-                           <span class="trivia-category"></span>
-                           <span class="trivia-difficulty"></span>
-                        </div>
-                        <hr>
-                        <p class="trivia-question"></p>
-                        <hr>
-                        <form id="player-answer">
+                  </div>
+                  <!-- TRIVIA QUESTION -->
+                  <article class="trivia-card hidden">
+                     <div class="flex-container">
+                        <span class="trivia-category"></span>
+                        <span class="trivia-difficulty"></span>
+                     </div>
+                     <hr>
+                     <p class="trivia-question"></p>
 
-                        </form>
-                        <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
-                     </article>
+                     <hr>
 
-                     <article class="final-score hidden">
-                        <h1>Final Score: <span class="final"></span></h1>
-                        <hr>
-                        <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
-                        <p>Post to leaderboard?</p>
-                        <form class="" action="index.html" method="post">
-                           <label for="userName">Name: </label>
-                           <input id="userName" type="text" name="user_name" value="">
-                           <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="button">Submit</button>
-                        </form>
-                     </article>
+                     <form id="player-answer">
+
+                     </form>
+
+                     <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
+                  </article><!-- ./trivia-card -->
+
+                  <article class="alert alert-success alert-correct">
+                     <h2>CORRECT!</h2>
+                  </article>
+                  <article class="alert alert-danger alert-wrong">
+                     <h2>WRONG!</h2>
+                  </article>
+
+                  <article class="final-score hidden">
+                     <h1>Final Score: <span class="final"></span></h1>
+                     <hr>
+                     <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
+                     <p>Think you rank with the best? Show off your score!</p>
+                     <form class="" action="index.html" method="post">
+                        <label for="userName">Name: </label>
+                        <input id="userName" type="text" name="user_name" value="">
+                        <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="button">Submit</button>
+                     </form>
+                  </article><!-- ./final-score -->
                </section>
             </main><!-- ./main -->
 
+            <!-- High Scores -->
             <aside class="side-bar col-md-4 col-lg-2">
                <section class="high-scores">
                   <h2>High Scores</h2>
@@ -131,7 +145,7 @@
       </div>
 
       <footer class="main-footer">
-
+         <h6 class="legal">Copyright (c) 2017 Ryan Johnson All Rights Reserved.</h6>
       </footer>
 
 

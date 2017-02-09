@@ -21,13 +21,13 @@ h2 {
   height: 120px;
   background-color: #465765;
   align-items: center;
+  box-shadow: 0 1px 22px 4px #465765;
 }
 
 .logo > img {
   margin-top: 6px;
   height: 100px;
 }
-
 
 /*==============================
   Player Score/High Scores
@@ -45,7 +45,7 @@ h2 {
   Category Lists
 ==============================*/
 .side-bar {
-  background: #5a7184;
+  background: #303b44;
   height: 540px;
   color: #ecf0f1;
   box-shadow: 1px 0 22px 4px #465765;
@@ -57,6 +57,7 @@ h2 {
 
 .question-list > li {
   display: block;
+  font-size: 14px;
   margin: 10px 0;
 }
 
@@ -71,21 +72,31 @@ h2 {
   Filter Options
 ==============================*/
 label {
+  margin: 10px auto;
   font-size: 14px;
 }
 
 select {
   display: block;
-  width: 150px;
+  width: 100%;
   color: #465765;
 }
 button {
-  margin: 10px 0;
+  margin: 20px auto;
   color: #465765;
 }
 /*==============================
   Timer
 ==============================*/
+.timer-area {
+  display: none;
+  margin: auto;
+  margin-top: -10px;
+  max-width: 180px;
+  border: 10px solid #465765;
+  border-radius: 0 0 25px 25px;
+  background: #303b44;
+}
 #timer {
   display: block;
   margin: 20px 0;
@@ -119,11 +130,13 @@ button {
 }
 
 .trivia-category {
+  display: none;
   margin-bottom: 10px;
   font-style: italic;
 }
 
 .trivia-question {
+  display: none;
   margin-bottom: 15px;
 }
 .trivia-answers {
@@ -144,6 +157,24 @@ input[type="radio"]:checked + label {
     background: red;
 }
 /*==============================
+  Alerts
+==============================*/
+.alert-correct {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto;
+  display: none;
+}
+.alert-wrong {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto;
+  background: #f41844;
+  color: #ecf0f1;
+  display: none;
+}
+
+/*==============================
   Final Score
 ==============================*/
 .final-score {
@@ -159,11 +190,21 @@ input[type="radio"]:checked + label {
   margin-top: 0;
   border-color: #465765;
 }
+.final-score > p {
+  margin: 5px auto;
+}
 /*==============================
   Footer
 ==============================*/
 .main-footer {
+  display: flex;
   height: 120px;
   background-color: #465765;
+  box-shadow: 0 1px 22px 4px #465765;
   align-items: center;
+  justify-content: flex-end;
+}
+.legal {
+  color: #ecf0f1;
+  margin-right: 20px;
 }

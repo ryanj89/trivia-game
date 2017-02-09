@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   // Get leaderboard scores
   $.get('https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/', function(results) {
     var highScores = results.filter(function(leader) {
@@ -60,7 +61,6 @@ function getTriviaData(triviaQuery) {
     function newRound(questions, currentRound) {
       var currentRound = currentRound;
       var currentQuestion = questions[currentRound];
-
       // Start timer
       var timerCount = 30;
       counter = setInterval(timer, 1000);
@@ -77,6 +77,7 @@ function getTriviaData(triviaQuery) {
         }
         document.getElementById("timer").innerHTML = timerCount + " secs";
       }
+      $('.timer-area').delay(1400).slideDown('slow');
       // Show current question
       showQuestion(questions, currentRound);
 
@@ -87,7 +88,7 @@ function getTriviaData(triviaQuery) {
         var correctAnswer = getAnswer(questions, currentRound);
 
         if (playerChoice === correctAnswer) {
-          alert('CORRECT!');
+          $('.alert-correct').fadeIn('slow').delay(1000).fadeOut('slow');
           var currentCategory = $('.trivia-status:eq('+currentRound+ ')');
           currentCategory.removeClass('glyphicon-question-sign');
           currentCategory.addClass('glyphicon-ok-sign');
@@ -97,7 +98,8 @@ function getTriviaData(triviaQuery) {
           answeredCorrectly++;
           addScore();
         } else {
-          alert('WRONG!');
+          // alert('WRONG!');
+          $('.alert-wrong').fadeIn('fast').delay(1000).fadeOut('slow');
           var currentCategory = $('.trivia-status:eq('+currentRound+ ')');
           currentCategory.removeClass('glyphicon-question-sign');
           currentCategory.addClass('glyphicon-remove-sign');
@@ -160,8 +162,8 @@ function getTriviaData(triviaQuery) {
         $difficulty.text("100 pts.");
       }
 
-      $category.text(currentQuestion.category);
-      $question.html(currentQuestion.question);
+      $category.text(currentQuestion.category).fadeIn('slow');
+      $question.html(currentQuestion.question).fadeIn('slow');
 
       var allAnswers = [ ];
       // Get answers
@@ -243,8 +245,9 @@ $('#leaderboard').on('click', function() {
     "player_name": $('#userName').val(),
     "score": parseInt($('#score').text())
   };
-  console.log(JSON.stringify(playerData));
 
+  $('.final-score').fadeOut('fast');
+  $('#filter-options').removeClass('hidden');
   // Post to leaderboards
   $.ajax("https://galvanize-cors-proxy.herokuapp.com/https://galvanize-leader-board.herokuapp.com/api/v1/leader-board", {
     method: "POST",
