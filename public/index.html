@@ -11,13 +11,62 @@
          <div class="container">
             <section class="logo">
                <img src="./assets/img/logo.png" alt="trivia game logo">
+               <h1 class="tag-line">the GAME!</h1>
+               <h3 class="tag-line2">Made by Ryan Johnson</h3>
             </section>
          </div>
       </header>
       <div class="container-fluid">
          <div class="row">
 
-            <aside class="side-bar col-md-4 col-lg-2">
+            <main class="container col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-lg-6">
+               <section class="question-row row">
+                  <!-- Timer -->
+                  <div class="timer-area">
+                     <span id="timer" class="text-center"></span>
+                  </div>
+                  <!-- TRIVIA QUESTIONS -->
+                  <article class="trivia-card">
+                     <div class="flex-container">
+                        <span class="trivia-category"></span>
+                        <span class="trivia-difficulty"></span>
+                     </div>
+                     <hr>
+                     <p class="trivia-question"></p>
+
+                     <hr>
+
+                     <form id="player-answer">
+
+                     </form>
+
+                     <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
+                  </article><!-- ./trivia-card -->
+
+                  <article class="final-score">
+                     <h1>Final Score: <span class="final"></span></h1>
+                     <hr>
+                     <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
+                     <p>Think you rank with the best? Show off your score!</p>
+                     <form class="" action="index.html" method="post">
+                        <label for="userName">Name: </label>
+                        <input id="userName" type="text" name="user_name" value="">
+                        <button id="leaderboard" class="btn btn-primary" type="button" name="leaderboard">Submit</button>
+                        <button id="play-again" class="btn btn-success" type="button" name="play-again">Play Again?</button>
+                     </form>
+                  </article><!-- ./final-score -->
+
+                  <article class="alert alert-success alert-correct">
+                     <h2></h2>
+                  </article>
+                  <article class="alert alert-danger alert-wrong">
+                     <h2></h2>
+                  </article>
+
+               </section>
+            </main><!-- ./main -->
+
+            <aside class="side-bar col-xs-6 col-sm-3 col-sm-pull-6 col-md-3 col-lg-3">
                <section class="player-score">
                   <h2>Score: <span id="score">0</span></h2>
                </section>
@@ -25,7 +74,7 @@
                <hr>
 
                <section>
-                  <h3 class="trivia-rounds hidden">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
+                  <h3 class="trivia-rounds">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
                   <ul class="question-list">
                   </ul>
                </section>
@@ -87,58 +136,17 @@
                </form>
             </aside><!-- ./side-bar -->
 
-            <main class="container col-md-4 col-lg-8">
-               <section class="question-row row">
-                  <!-- Timer -->
-                  <div class="timer-area">
-                     <span id="timer" class="text-center"></span>
-                  </div>
-                  <!-- TRIVIA QUESTION -->
-                  <article class="trivia-card hidden">
-                     <div class="flex-container">
-                        <span class="trivia-category"></span>
-                        <span class="trivia-difficulty"></span>
-                     </div>
-                     <hr>
-                     <p class="trivia-question"></p>
-
-                     <hr>
-
-                     <form id="player-answer">
-
-                     </form>
-
-                     <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
-                  </article><!-- ./trivia-card -->
-
-                  <article class="alert alert-success alert-correct">
-                     <h2></h2>
-                  </article>
-                  <article class="alert alert-danger alert-wrong">
-                     <h2></h2>
-                  </article>
-
-                  <article class="final-score hidden">
-                     <h1>Final Score: <span class="final"></span></h1>
-                     <hr>
-                     <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
-                     <p>Think you rank with the best? Show off your score!</p>
-                     <form class="" action="index.html" method="post">
-                        <label for="userName">Name: </label>
-                        <input id="userName" type="text" name="user_name" value="">
-                        <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="button">Submit</button>
-                     </form>
-                  </article><!-- ./final-score -->
-               </section>
-            </main><!-- ./main -->
-
             <!-- High Scores -->
-            <aside class="side-bar col-md-4 col-lg-2">
+            <aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
                <section class="high-scores">
                   <h2>High Scores</h2>
-                  <hr>
-                  <ol class="scores">
-                  </ol>
+                  <table class="scores table">
+                     <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                     </tr>
+                  </table>
                </section>
             </aside>
          </div>
