@@ -10,7 +10,9 @@
   --header-text-color: #FF6400;
   --sidebar-text-color: #ecf0f1;
 }
-
+/*==============================
+  Custom Styling
+==============================*/
 * {
   box-sizing: border-box;
 }
@@ -23,6 +25,7 @@ body {
 h1 {
   font-size: 36px;
 }
+
 h2 {
   font-size: 32px;
 }
@@ -30,28 +33,30 @@ h2 {
 main {
   margin: 0 10px;
 }
-
+/*==============================
+  Header/Logo
+==============================*/
 .main-header {
   height: 120px;
   background-color: var(--header-bg-color);
   align-items: center;
   box-shadow: 0 1px 22px 4px #465765;
 }
-
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--header-text-color);
+}
 .logo > img {
-  display: inline-block;
   margin-top: 6px;
   height: 100px;
 }
 .logo > h1 {
-  display: inline-block;
-  color: var(--header-text-color);
   margin-left: 10px;
 }
 .tag-line2 {
   display: none;
-  color: var(--header-text-color);
-  /*visibility: hidden;*/
+  margin-left: 10px;
 }
 /*==============================
   Player Score/High Scores
@@ -67,7 +72,6 @@ main {
 .scores,
 .scores th {
   text-align: center;
-  margin: 10px 0;
 }
 
 /*==============================
@@ -91,13 +95,13 @@ main {
   line-height: 1.5;
   margin: 10px 0;
 }
+
 .glyphicon-question-sign {
   color: #FF7000;
 }
 .glyphicon-ok-sign {
   color: #31f75f;
 }
-
 .glyphicon-remove-sign {
   color: #f41844;
 }
@@ -105,6 +109,7 @@ main {
   Filter Options
 ==============================*/
 label {
+  width: 100%;
   margin: 10px auto;
   font-size: 14px;
 }
@@ -114,6 +119,7 @@ select {
   width: 100%;
   color: #465765;
 }
+
 button {
   margin: 20px auto;
 }
@@ -130,6 +136,7 @@ button {
   border-radius: 0 0 25px 25px;
   background: var(--sidebar-bg-color);
 }
+
 #timer {
   display: block;
   margin: 20px 0;
@@ -144,6 +151,7 @@ button {
   align-items: center;
   justify-content: space-between;
 }
+
 .trivia-card {
   display: none;
   margin: 20px auto;
@@ -154,10 +162,12 @@ button {
   border-radius: 5px;
   padding: 10px;
 }
+
 .trivia-card > hr {
   margin-top: 0;
   border-color: #465765;
 }
+
 .trivia-difficulty {
   margin-bottom: 10px;
   font-size: 20px;
@@ -173,6 +183,7 @@ button {
   display: none;
   margin-bottom: 15px;
 }
+
 .trivia-answers {
   margin: 10px auto;
 }
@@ -180,16 +191,11 @@ button {
 .trivia-answers > input {
   margin: 5px auto;
 }
-label {
-  width: 100%;
-}
+
 input[type="radio"] {
   margin-top: 0;
 }
 
-input[type="radio"]:checked + label {
-    background: red;
-}
 /*==============================
   Alerts
 ==============================*/

@@ -12,7 +12,7 @@ $(document).ready(function() {
         if (leader.game_name === 'TRVA') {
           return leader;
         }
-      })
+      });
       return highScores;
     }
     function sortHighScores(highScores) {
@@ -35,7 +35,6 @@ $(document).ready(function() {
   var counter;
   var currentRound = 0;
   var playerScore = 0;
-  var timeoutID;
   // Get questions
   $('#get-questions').on('click', function() {
     var triviaQuery = setFilterOptions();
@@ -44,7 +43,6 @@ $(document).ready(function() {
     $('.trivia-rounds').fadeIn(500);
     $('.trivia-card').fadeIn(500);
     $('.timer-area').delay(1400).slideDown('fast');
-    // $('body').animate({ opacity: 1 }, 'slow');
   });
 
   function getTriviaData(triviaQuery) {
@@ -58,7 +56,8 @@ $(document).ready(function() {
     function getTriviaQuestions(triviaData) {
       questions = triviaData.results.map(function(question) {
         return question;
-      })
+      });
+      console.log(questions);
       populateCategories(questions);
       // Start new round
       newRound(questions, currentRound);
@@ -71,7 +70,7 @@ $(document).ready(function() {
         questions.forEach(function(question) {
           var $category = $('<li>' + '<span class="trivia-status glyphicon glyphicon-question-sign" aria-hidden="true"></span> ' + question.category + '</li>');
           $questionList.append($category);
-        })
+        });
       }
 
       function newRound(questions, currentRound) {
@@ -108,9 +107,9 @@ $(document).ready(function() {
             $('.alert-correct').fadeIn('slow').delay(1000).fadeOut('slow');
             $currentCategory.removeClass('glyphicon-question-sign');
             $currentCategory.addClass('glyphicon-ok-sign');
-            answeredCorrectly++;
             resetTimer();
             addScore();
+            answeredCorrectly++;
           } else {
             $('.alert-wrong>h2').text(getRandomFailure());
             $('.alert-wrong').fadeIn('fast').delay(1000).fadeOut('slow');
@@ -125,7 +124,7 @@ $(document).ready(function() {
         })
 
         function getAnswer(questions, currentRound) {
-          console.log(currentRound);
+          // console.log(questions);
           var answer = questions[currentRound].correct_answer;
           return answer;
         }
@@ -138,11 +137,16 @@ $(document).ready(function() {
             playerScore += 50;
           } else if (questionValue === "hard") {
             playerScore += 100;
-          };
+          }
           $('#score').text(playerScore);
         }
 
-
+        function resetTimer() {
+          document.getElementById("timer").style.color = "#ecf0f1";
+          timerCount = 30;
+          clearInterval(counter);
+          counter = setInterval(timer, 1000);
+        }
       }
 
       // Create trivia card and elements to show on page
@@ -193,7 +197,7 @@ $(document).ready(function() {
 
           var answers = document.getElementById('player-answer');
           allAnswers.forEach(function(answer, index) {
-            var answerChoice = document.createElement('div')
+            var answerChoice = document.createElement('div');
             answerChoice.className = 'radio';
             var label = document.createElement('label');
             label.className = 'trivia-answer';
@@ -290,12 +294,7 @@ $(document).ready(function() {
   }
 
 
-  function resetTimer() {
-    document.getElementById("timer").style.color = "#ecf0f1";
-    timerCount = 30;
-    clearInterval(counter);
-    counter = setInterval(timer, 1000);
-  }
+
 
   // Shuffle
   function shuffle(array) {
