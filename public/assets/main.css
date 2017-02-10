@@ -1,34 +1,63 @@
 @import 'node_modules/reset-css/reset.css';
-
+/*==============================
+  Colors
+==============================*/
+:root {
+  --main-bg-color: rgb(39, 174, 96);
+  --header-bg-color: #465765;
+  --sidebar-bg-color: #303b44;
+  --trivia-bg-color: #ecf0f1;
+  --header-text-color: #FF6400;
+  --sidebar-text-color: #ecf0f1;
+}
+/*==============================
+  Custom Styling
+==============================*/
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Avenir Next', sans-serif;
-  background: #27ae60;
+  background-color: var(--main-bg-color);
 }
 
 h1 {
   font-size: 36px;
 }
+
 h2 {
   font-size: 32px;
 }
 
-
+main {
+  margin: 0 10px;
+}
+/*==============================
+  Header/Logo
+==============================*/
 .main-header {
   height: 120px;
-  background-color: #465765;
+  background-color: var(--header-bg-color);
   align-items: center;
   box-shadow: 0 1px 22px 4px #465765;
 }
-
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--header-text-color);
+}
 .logo > img {
   margin-top: 6px;
   height: 100px;
 }
-
+.logo > h1 {
+  margin-left: 10px;
+}
+.tag-line2 {
+  display: none;
+  margin-left: 10px;
+}
 /*==============================
   Player Score/High Scores
 ==============================*/
@@ -37,41 +66,50 @@ h2 {
   margin: 20px 0;
   text-align: center;
 }
-.scores > li {
-  text-align: left;
-  margin: 5px 0;
+.high-scores h2 {
+  margin: 20px 0;
 }
+.scores,
+.scores th {
+  text-align: center;
+}
+
 /*==============================
   Category Lists
 ==============================*/
 .side-bar {
-  background: #303b44;
+  background: var(--sidebar-bg-color);
   height: 540px;
-  color: #ecf0f1;
+  color: var(--sidebar-text-color);
   box-shadow: 1px 0 22px 4px #465765;
 }
 
 .trivia-rounds {
+  display: none;
   margin: 10px 0;
 }
 
 .question-list > li {
   display: block;
   font-size: 14px;
+  line-height: 1.5;
   margin: 10px 0;
 }
 
+.glyphicon-question-sign {
+  color: #FF7000;
+}
 .glyphicon-ok-sign {
   color: #31f75f;
 }
-
 .glyphicon-remove-sign {
-  color: #e26a63;
+  color: #f41844;
 }
 /*==============================
   Filter Options
 ==============================*/
 label {
+  width: 100%;
   margin: 10px auto;
   font-size: 14px;
 }
@@ -81,9 +119,9 @@ select {
   width: 100%;
   color: #465765;
 }
+
 button {
   margin: 20px auto;
-  color: #465765;
 }
 /*==============================
   Timer
@@ -94,14 +132,16 @@ button {
   margin-top: -10px;
   max-width: 180px;
   border: 10px solid #465765;
+  box-shadow: 1px 0 18px 4px #465765;
   border-radius: 0 0 25px 25px;
-  background: #303b44;
+  background: var(--sidebar-bg-color);
 }
+
 #timer {
   display: block;
   margin: 20px 0;
   font-size: 36px;
-  color: #ecf0f1;
+  color: var(--sidebar-text-color);
 }
 /*==============================
   Trivia Card
@@ -111,19 +151,23 @@ button {
   align-items: center;
   justify-content: space-between;
 }
+
 .trivia-card {
+  display: none;
   margin: 20px auto;
   max-width: 540px;
-  background-color: #ecf0f1;
+  background-color: var(--trivia-bg-color);
   border: 1px solid #465765;
   box-shadow: 0 0 22px 4px #465765;
   border-radius: 5px;
   padding: 10px;
 }
+
 .trivia-card > hr {
   margin-top: 0;
   border-color: #465765;
 }
+
 .trivia-difficulty {
   margin-bottom: 10px;
   font-size: 20px;
@@ -139,6 +183,7 @@ button {
   display: none;
   margin-bottom: 15px;
 }
+
 .trivia-answers {
   margin: 10px auto;
 }
@@ -146,16 +191,11 @@ button {
 .trivia-answers > input {
   margin: 5px auto;
 }
-label {
-  width: 100%;
-}
+
 input[type="radio"] {
-  /*visibility: hidden;*/
+  margin-top: 0;
 }
 
-input[type="radio"]:checked + label {
-    background: red;
-}
 /*==============================
   Alerts
 ==============================*/
@@ -178,9 +218,10 @@ input[type="radio"]:checked + label {
   Final Score
 ==============================*/
 .final-score {
+  display: none;
   margin: 20px auto;
   width: 420px;
-  background-color: #ecf0f1;
+  background-color: var(--trivia-bg-color);
   border: 1px solid #465765;
   box-shadow: 0 0 22px 4px #465765;
   border-radius: 5px;
@@ -199,7 +240,7 @@ input[type="radio"]:checked + label {
 .main-footer {
   display: flex;
   height: 120px;
-  background-color: #465765;
+  background-color: var(--header-bg-color);
   box-shadow: 0 1px 22px 4px #465765;
   align-items: center;
   justify-content: flex-end;

@@ -11,90 +11,22 @@
          <div class="container">
             <section class="logo">
                <img src="./assets/img/logo.png" alt="trivia game logo">
+               <h1 class="tag-line">the GAME!</h1>
+               <h3 class="tag-line2">Made by Ryan Johnson</h3>
             </section>
          </div>
       </header>
       <div class="container-fluid">
          <div class="row">
 
-            <aside class="side-bar col-md-4 col-lg-2">
-               <section class="player-score">
-                  <h2>Score: <span id="score">0</span></h2>
-               </section>
-
-               <hr>
-
-               <section>
-                  <h3 class="trivia-rounds hidden">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
-                  <ul class="question-list">
-                  </ul>
-               </section>
-
-               <form id="filter-options">
-                  <!-- Number of Questions -->
-                  <label for="num-questions">Number of Questions:</label>
-                  <select class="num-questions" name="num-questions">
-                     <option value="1">1</option>
-                     <option value="3">3</option>
-                     <option value="5">5</option>
-                     <option value="10" selected>10</option>
-                  </select>
-                  <!-- Filter Category -->
-                  <label for="category-filter">Choose Category:</label>
-                  <select class="category-filter" name="categories">
-                     <option value="any">Any Category</option>
-                     <option value="9">General Knowledge</option>
-                     <option value="10">Entertainment: Books</option>
-                     <option value="11">Entertainment: Film</option>
-                     <option value="12">Entertainment: Music</option>
-                     <option value="13">Entertainment: Musicals &amp; Theatres</option>
-                     <option value="14">Entertainment: Television</option>
-                     <option value="15">Entertainment: Video Games</option>
-                     <option value="16">Entertainment: Board Games</option>
-                     <option value="17">Science &amp; Nature</option>
-                     <option value="18">Science: Computers</option>
-                     <option value="19">Science: Mathematics</option>
-                     <option value="20">Mythology</option>
-                     <option value="21">Sports</option>
-                     <option value="22">Geography</option>
-                     <option value="23">History</option>
-                     <option value="24">Politics</option>
-                     <option value="25">Art</option>
-                     <option value="26">Celebrities</option>
-                     <option value="27">Animals</option>
-                     <option value="28">Vehicles</option>
-                     <option value="29">Entertainment: Comics</option>
-                     <option value="30">Science: Gadgets</option>
-                     <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
-                     <option value="32">Entertainment: Cartoon &amp; Animations</option>
-                  </select>
-                  <!-- Filter Difficulty -->
-                  <label for="difficulty">Choose Difficulty:</label>
-                  <select class="difficulty-filter" name="difficulty">
-                     <option value="any">Any Difficulty</option>
-                     <option value="easy">Easy</option>
-                     <option value="medium">Medium</option>
-                     <option value="hard">Hard</option>
-                  </select>
-                  <!-- Filter Question Type -->
-                  <label for="type-filter">Choose Type:</label>
-                  <select class="type-filter" name="type">
-                     <option value="any">Any Type</option>
-                     <option value="multiple">Multiple Choice</option>
-                     <option value="boolean">True/False</option>
-                  </select>
-                  <button id="get-questions" class="btn btn-success btn-block" type="button" name="new-game">START GAME</button>
-               </form>
-            </aside><!-- ./side-bar -->
-
-            <main class="container col-md-4 col-lg-8">
+            <main class="container col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-lg-6">
                <section class="question-row row">
                   <!-- Timer -->
                   <div class="timer-area">
                      <span id="timer" class="text-center"></span>
                   </div>
-                  <!-- TRIVIA QUESTION -->
-                  <article class="trivia-card hidden">
+                  <!-- TRIVIA QUESTIONS -->
+                  <article class="trivia-card">
                      <div class="flex-container">
                         <span class="trivia-category"></span>
                         <span class="trivia-difficulty"></span>
@@ -111,6 +43,21 @@
                      <button id="answer-btn" class="btn btn-primary btn-block">Submit Answer</button>
                   </article><!-- ./trivia-card -->
 
+                  <article class="final-score">
+                     <h1>Final Score: <span class="final"></span></h1>
+                     <hr>
+                     <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
+                     <p>Think you rank with the best? Show off your score!</p>
+                     <form class="" action="index.html" method="post">
+                        <div class="form-group">
+                           <label for="userName">Name: </label>
+                           <input id="userName" class="form-control" type="text" name="user_name" value="">
+                        </div>
+                        <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="leaderboard">Submit</button>
+                        <button id="play-again" class="btn btn-success btn-block" type="button" name="play-again">Play Again?</button>
+                     </form>
+                  </article><!-- ./final-score -->
+
                   <article class="alert alert-success alert-correct">
                      <h2></h2>
                   </article>
@@ -118,34 +65,101 @@
                      <h2></h2>
                   </article>
 
-                  <article class="final-score hidden">
-                     <h1>Final Score: <span class="final"></span></h1>
-                     <hr>
-                     <p>You answered <span class="correct"></span> out of <span class="total-questions"></span> questions correctly!</p>
-                     <p>Think you rank with the best? Show off your score!</p>
-                     <form class="" action="index.html" method="post">
-                        <label for="userName">Name: </label>
-                        <input id="userName" type="text" name="user_name" value="">
-                        <button id="leaderboard" class="btn btn-primary btn-block" type="button" name="button">Submit</button>
-                     </form>
-                  </article><!-- ./final-score -->
                </section>
             </main><!-- ./main -->
 
+            <aside class="side-bar col-xs-6 col-sm-3 col-sm-pull-6 col-md-3 col-lg-3">
+               <section class="player-score">
+                  <h2>Score: <span id="score">0</span></h2>
+               </section>
+
+               <hr>
+
+               <section>
+                  <h3 class="trivia-rounds">Question <span class="current-round">1</span> of <span class="total-questions"></span></h3>
+                  <ul class="question-list">
+                  </ul>
+               </section>
+
+               <form id="filter-options">
+                  <!-- Number of Questions -->
+                  <label for="num-questions">Number of Questions:</label>
+                  <select class="form-control num-questions" name="num-questions">
+                     <option value="1">1</option>
+                     <option value="3">3</option>
+                     <option value="5">5</option>
+                     <option value="10" selected>10</option>
+                  </select>
+                  <!-- Filter Category -->
+                  <label for="category-filter">Choose Category:</label>
+                  <select class="form-control category-filter" name="categories">
+                     <option value="any">Any Category</option>
+                     <option value="9">General Knowledge</option>
+                     <option value="27">Animals</option>
+                     <option value="25">Art</option>
+                     <option value="26">Celebrities</option>
+                     <optgroup label="Entertainment">
+                        <option value="16">Board Games</option>
+                        <option value="10">Books</option>
+                        <option value="32">Cartoon &amp; Animations</option>
+                        <option value="29">Comics</option>
+                        <option value="11">Film</option>
+                        <option value="31">Japanese Anime &amp; Manga</option>
+                        <option value="12">Music</option>
+                        <option value="13">Musicals &amp; Theatres</option>
+                        <option value="14">Television</option>
+                        <option value="15">Video Games</option>
+                     </optgroup>
+                     <option value="22">Geography</option>
+                     <option value="23">History</option>
+                     <option value="20">Mythology</option>
+                     <option value="24">Politics</option>
+                     <optgroup label="Science">
+                        <option value="18">Computers</option>
+                        <option value="30">Gadgets</option>
+                        <option value="19">Mathematics</option>
+                        <option value="17">Science &amp; Nature</option>
+                     </optgroup>
+                     <option value="21">Sports</option>
+                     <option value="28">Vehicles</option>
+                  </select>
+                  <!-- Filter Difficulty -->
+                  <label for="difficulty">Choose Difficulty:</label>
+                  <select class="form-control difficulty-filter" name="difficulty">
+                     <option value="any">Any Difficulty</option>
+                     <option value="easy">Easy</option>
+                     <option value="medium">Medium</option>
+                     <option value="hard">Hard</option>
+                  </select>
+                  <!-- Filter Question Type -->
+                  <label for="type-filter">Choose Type:</label>
+                  <select class="form-control type-filter" name="type">
+                     <option value="any">Any Type</option>
+                     <option value="multiple">Multiple Choice</option>
+                     <option value="boolean">True/False</option>
+                  </select>
+                  <button id="get-questions" class="btn btn-success btn-block" type="button" name="new-game">START GAME</button>
+               </form>
+            </aside><!-- ./side-bar -->
+
             <!-- High Scores -->
-            <aside class="side-bar col-md-4 col-lg-2">
+            <aside class="side-bar col-xs-6 col-sm-3 col-md-3 col-lg-3">
                <section class="high-scores">
                   <h2>High Scores</h2>
-                  <hr>
-                  <ol class="scores">
-                  </ol>
+                  <table class="scores table">
+                     <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                     </tr>
+                  </table>
                </section>
             </aside>
          </div>
       </div>
 
       <footer class="main-footer">
-         <h6 class="legal">Copyright (c) 2017 Ryan Johnson All Rights Reserved.</h6>
+         <h6><small class="legal">Copyright (c) 2017 Ryan Johnson All Rights Reserved.</small></h6>
       </footer>
 
 
